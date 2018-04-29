@@ -9,7 +9,7 @@ How does it work?
 - when it founds the lower value, it swaps for the current value
 - it keep looking for the lower value into the list
 - and swaps it for the current one
-- it will be in a loop until the index number will be iqual to the list elements
+- it will be in a loop until the index number will be iqual to the list element
 
 
 """
