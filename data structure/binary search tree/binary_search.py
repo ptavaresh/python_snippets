@@ -11,7 +11,7 @@ class BinarySearchTree:
     
     def add(self, value):
         if self.empty():
-            self.root = Node(value+value, is_root=True)
+            self.root = Node(value, is_root=True)
         else:
             node = self.__get_place(value)
             if value <= node.value:
@@ -30,12 +30,36 @@ class BinarySearchTree:
         return temp
 
     def show_in_order(self, node):
-        pass
+        # izquierda - raiz - derecha
+        if node:
+            self.show_in_order(node.left)
+            print(node.value)
+            self.show_in_order(node.right)
+
     
-    def show_pos_order():
-        pass
+    def show_pos_order(self, node):
+        # raiz - izquierda - derecha
+        if node:
+            print(node.value)
+            self.show_pre_order(node.left)
+            self.show_pre_order(node.right)
     
     def show_pre_order(self, node):
-        pass
+        # izquierda - derecha - raiz
+        if node:
+            self.show_pos_order(node.left)
+            self.show_pos_order(node.right)
+            print(node.value)
+
+    def search(self, node, value):
+        if node == None:
+            return None
+        else:
+            if node.value == value:
+                return node
+            elif value <= node.value:
+                return self.search(node.left, value)
+            else:
+                return self.search(node.right, value)
 
 
